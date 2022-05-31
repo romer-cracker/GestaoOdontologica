@@ -1,57 +1,61 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<title>Área de Acesso</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+<head>
+        <title>Área de Acesso</title><meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+        <link rel="stylesheet" href="css/maruti-login.css" />
+    </head>
+    <body>
+        <div id="loginbox">            
+            <form id="loginform" class="form-vertical" action="ServletLogin" method="post">
+            	<input type="hidden" name="acao" id="acao" value="">
+				 <div class="control-group normal_text"> <h3><img src="img/logo.png" alt="Logo" /></h3></div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on"><i class="icon-user"></i></span><input type="text" id="login" name="login" placeholder="Login" />
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on"><i class="icon-lock"></i></span><input type="password" id="senha" name="senha" placeholder="Senha" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-inverse" id="to-recover">Esqueceu a senha?</a></span>
+                    <span class="pull-right"><input type="submit" class="btn btn-success" value="Login" /></span>
+                </div>
+            </form>
+            <form id="recoverform" action="#" class="form-vertical">
+				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
+				
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on"><i class="icon-envelope"></i></span><input type="text" placeholder="Login" />
+                        </div>
+                    </div>
+               
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-inverse" id="to-login">&laquo; Back to login</a></span>
+                    <span class="pull-right"><input type="submit" class="btn btn-info" value="Recover" /></span>
+                </div>
+            </form>
+        </div>
+        
+        <script src="js/jquery.min.js"></script>  
+        <script src="js/maruti.login.js"></script> 
+    </body>
 
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="css/style.css">
-
-	</head>
-	<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
-	<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Área de Acesso</h2>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6 col-lg-4">
-					<div class="login-wrap p-0">
-		      	<form action="#" class="signin-form">
-		      		<div class="form-group">
-		      			<input type="text" id="login" name="login" class="form-control" placeholder="Login" required>
-		      		</div>
-	            <div class="form-group">
-	              <input id="senha" type="password" name="senha" class="form-control" placeholder="Senha" required>
-	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-	            </div>
-	            <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary submit px-3" value="Acessar">Acessar</button>
-	            </div>
-	           
-	          </form>
-	         
-		      </div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-
-	</body>
 </html>
+
 
     

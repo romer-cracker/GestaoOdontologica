@@ -9,7 +9,7 @@ package br.com.gestaodentista.modelo.entidade;
  */
 public class Procedimento {
 
-private int id;
+	private int id;
 	
 	private String nome;
 	

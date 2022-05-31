@@ -23,11 +23,10 @@ public class Consulta {
 	
 	private Procedimento tratamento;
 	
-	private Odontograma odontograma;
 
 	public Consulta(int id, Dentista dentista, Paciente paciente,
-			Date dataCriacao, double valor, Procedimento tratamento,
-			Odontograma odontograma) {
+			Date dataCriacao, double valor, Procedimento tratamento
+			) {
 		super();
 		this.id = id;
 		this.dentista = dentista;
@@ -35,7 +34,6 @@ public class Consulta {
 		this.dataCriacao = dataCriacao;
 		this.valor = valor;
 		this.tratamento = tratamento;
-		this.odontograma = odontograma;
 	}
 
 	public Consulta() {
@@ -90,14 +88,7 @@ public class Consulta {
 		this.tratamento = tratamento;
 	}
 
-	public Odontograma getOdontograma() {
-		return odontograma;
-	}
-
-	public void setOdontograma(Odontograma odontograma) {
-		this.odontograma = odontograma;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -108,7 +99,7 @@ public class Consulta {
 				+ ((dentista == null) ? 0 : dentista.hashCode());
 		result = prime * result + id;
 		result = prime * result
-				+ ((odontograma == null) ? 0 : odontograma.hashCode());
+				;
 		result = prime * result
 				+ ((paciente == null) ? 0 : paciente.hashCode());
 		result = prime * result
@@ -140,11 +131,7 @@ public class Consulta {
 			return false;
 		if (id != other.id)
 			return false;
-		if (odontograma == null) {
-			if (other.odontograma != null)
-				return false;
-		} else if (!odontograma.equals(other.odontograma))
-			return false;
+		
 		if (paciente == null) {
 			if (other.paciente != null)
 				return false;
