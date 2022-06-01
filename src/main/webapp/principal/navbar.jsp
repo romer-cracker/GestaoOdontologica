@@ -26,21 +26,23 @@
 
 <ul>
 
-    <li class="active"> <a href="<%= request.getContextPath() %>/ServletUsuarioController"> <i class="icon-user"></i> <span>Usuários</span></a> </li> 
+    <li class="active"> <a href="principal/principal.jsp"> <i class="icon icon-home"></i> <span>Inicio</span></a> </li> 
+    
+    <li> <a href="<%= request.getContextPath() %>/ServletUsuarioController"> <i class="icon-user"></i> <span>Usuários</span> </a></li>
      
-    <li class="active"> <a href="<%= request.getContextPath() %>/ServletPaciente"> <i class="icon-client"></i> <span>Pacientes</span> </a></li>
+    <li> <a href="<%= request.getContextPath() %>/ServletPaciente"> <i class="icon icon-client"></i> <span>Pacientes</span> </a></li>
     
-    <li class="active"> <a href="widgets.html"> <i class="icon-book"></i> <span>Consultas</span> </a></li>
+    <li> <a href="<%= request.getContextPath() %>/ServletConsultaController"> <i class="icon-book"></i> <span>Consultas</span> </a></li>
     
-    <li class="active"> <a href="tables.html"> <i class="icon-survey"></i> <span>Auditoria</span> </a></li>
+    <li> <a href="tables.html"> <i class="icon-survey"></i> <span>Auditoria</span> </a></li>
     
-    <li class="active"> <a href="grid.html"> <i class="icon icon-fullscreen"></i> <span>Contratos</span> </a></li>
+    <li> <a href="grid.html"> <i class="icon icon-fullscreen"></i> <span>Contratos</span> </a></li>
     
-    <li class="active"> <a href="dentista.html"> <i class="icon icon-th-list"></i> <span>Dentistas</span> </a></li>
+    <li> <a href="<%= request.getContextPath() %>/ServletDentistaController"> <i class="icon icon-th-list"></i> <span>Dentistas</span> </a></li>
     
-    <li class="active"> <a href="buttons.html"> <i class="icon icon-tint"></i> <span>Pagamentos</span> </a></li>
+    <li> <a href="buttons.html"> <i class="icon icon-tint"></i> <span>Pagamentos</span> </a></li>
     
-    <li class="active"> <a href="interface.html"> <i class="icon icon-pencil"></i> <span>Procedimentos</span> </a></li>
+    <li> <a href="<%= request.getContextPath() %>/ServletProcedimentoController""> <i class="icon icon-pencil"></i> <span>Procedimentos</span> </a></li>
     
   </ul>
 </div>

@@ -4,6 +4,7 @@
 package br.com.gestaodentista.modelo.entidade;
 
 import java.sql.Date;
+import java.util.Objects;
 
 /**
  * @author romer
@@ -11,56 +12,49 @@ import java.sql.Date;
  */
 public class Consulta {
 	
-	private int id;
+	private Long id;
 	
-	private Dentista dentista;
+	private Long dentista;
 	
-	private Paciente paciente;
+	private Long paciente;
 	
 	private Date dataCriacao;
 	
 	private double valor;
 	
-	private Procedimento tratamento;
+	private Long tratamento;
 	
-
-	public Consulta(int id, Dentista dentista, Paciente paciente,
-			Date dataCriacao, double valor, Procedimento tratamento
-			) {
-		super();
-		this.id = id;
-		this.dentista = dentista;
-		this.paciente = paciente;
-		this.dataCriacao = dataCriacao;
-		this.valor = valor;
-		this.tratamento = tratamento;
+	public boolean isNovo() {
+		if(this.id == null) {
+			return true;
+		}else if(this.id != null && this.id > 0) {
+			return false;
+		}
+		
+		return id == null;
 	}
 
-	public Consulta() {
-		super();
-	}
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public Dentista getDentista() {
+	public Long getDentista() {
 		return dentista;
 	}
 
-	public void setDentista(Dentista dentista) {
+	public void setDentista(Long dentista) {
 		this.dentista = dentista;
 	}
 
-	public Paciente getPaciente() {
+	public Long getPaciente() {
 		return paciente;
 	}
 
-	public void setPaciente(Paciente paciente) {
+	public void setPaciente(Long paciente) {
 		this.paciente = paciente;
 	}
 
@@ -80,34 +74,26 @@ public class Consulta {
 		this.valor = valor;
 	}
 
-	public Procedimento getTratamento() {
+	public Long getTratamento() {
 		return tratamento;
 	}
 
-	public void setTratamento(Procedimento tratamento) {
+	public void setTratamento(Long tratamento) {
 		this.tratamento = tratamento;
 	}
 
-	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Consulta [id=").append(id).append(", dentista=").append(dentista).append(", paciente=")
+				.append(paciente).append(", dataCriacao=").append(dataCriacao).append(", valor=").append(valor)
+				.append(", tratamento=").append(tratamento).append("]");
+		return builder.toString();
+	}
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
-		result = prime * result
-				+ ((dentista == null) ? 0 : dentista.hashCode());
-		result = prime * result + id;
-		result = prime * result
-				;
-		result = prime * result
-				+ ((paciente == null) ? 0 : paciente.hashCode());
-		result = prime * result
-				+ ((tratamento == null) ? 0 : tratamento.hashCode());
-		long temp;
-		temp = Double.doubleToLongBits(valor);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
+		return Objects.hash(dataCriacao, dentista, id, paciente, tratamento, valor);
 	}
 
 	@Override
@@ -119,35 +105,18 @@ public class Consulta {
 		if (getClass() != obj.getClass())
 			return false;
 		Consulta other = (Consulta) obj;
-		if (dataCriacao == null) {
-			if (other.dataCriacao != null)
-				return false;
-		} else if (!dataCriacao.equals(other.dataCriacao))
-			return false;
-		if (dentista == null) {
-			if (other.dentista != null)
-				return false;
-		} else if (!dentista.equals(other.dentista))
-			return false;
-		if (id != other.id)
-			return false;
-		
-		if (paciente == null) {
-			if (other.paciente != null)
-				return false;
-		} else if (!paciente.equals(other.paciente))
-			return false;
-		if (tratamento == null) {
-			if (other.tratamento != null)
-				return false;
-		} else if (!tratamento.equals(other.tratamento))
-			return false;
-		if (Double.doubleToLongBits(valor) != Double
-				.doubleToLongBits(other.valor))
-			return false;
-		return true;
+		return Objects.equals(dataCriacao, other.dataCriacao) && Objects.equals(dentista, other.dentista)
+				&& Objects.equals(id, other.id) && Objects.equals(paciente, other.paciente)
+				&& Objects.equals(tratamento, other.tratamento)
+				&& Double.doubleToLongBits(valor) == Double.doubleToLongBits(other.valor);
 	}
 	
+
+	public Consulta() {
+		// TODO Auto-generated constructor stub
+	}
+	
+		
 	
 
 }

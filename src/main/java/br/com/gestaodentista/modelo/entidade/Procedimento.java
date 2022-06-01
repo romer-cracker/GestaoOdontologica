@@ -3,67 +3,40 @@
  */
 package br.com.gestaodentista.modelo.entidade;
 
+import java.util.Objects;
+
 /**
  * @author romer
  *
  */
 public class Procedimento {
 
-	private int id;
+	private Long id;
 	
 	private String nome;
 	
 	private String descricao;
 
-	public Procedimento(String nome, String descricao) {
-		this(0,nome, descricao);
-	}
-	
-	public Procedimento(int id, String nome, String descricao) {
-		this();
-		this.id = id;
-		this.nome = nome;
-		this.descricao = descricao;
+
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Procedimento [id=").append(id).append(", nome=").append(nome).append(", descricao=")
+				.append(descricao).append("]");
+		return builder.toString();
 	}
 
-	public Procedimento() {
-		super();
-	}
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		return result;
+		return Objects.hash(descricao, id, nome);
 	}
+
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -74,27 +47,62 @@ public class Procedimento {
 		if (getClass() != obj.getClass())
 			return false;
 		Procedimento other = (Procedimento) obj;
-		if (descricao == null) {
-			if (other.descricao != null)
-				return false;
-		} else if (!descricao.equals(other.descricao))
-			return false;
-		if (id != other.id)
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		return true;
+		return Objects.equals(descricao, other.descricao) && Objects.equals(id, other.id)
+				&& Objects.equals(nome, other.nome);
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Procedimento [id=").append(id).append(", nome=")
-				.append(nome).append(", descricao=").append(descricao)
-				.append("]");
-		return builder.toString();
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
+
+
+	public boolean isNovo() {
+		if(this.id == null) {
+			return true;
+		}else if(this.id != null && this.id > 0) {
+			return false;
+		}
+		
+		return id == null;
 	}
 }

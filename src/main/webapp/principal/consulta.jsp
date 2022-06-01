@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
-	<%@taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core"%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,122 +25,68 @@
 	</div>
 
 	<jsp:include page="navbar.jsp"></jsp:include>
-	
+
 
 	<div class="container-fluid">
-		<div id="content">
-  			<div id="content-header">
-    			<div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
-	 	 </div>
-	 	 	<div class="row-fluid">
-				<div class="span9">
-					<div class="widget-box" >
+		<div id="content" >
+			<div id="content-header">
+				<div id="breadcrumb">
+					<a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+				</div>
+			</div>
+			<div class="row-fluid" >
+				<div class="span6">
+					<div class="widget-box">
 						<div class="widget-title">
 							<span class="icon"> <i class="icon-align-justify"></i>
 							</span>
-							<h5>Cadastros de Pacientes</h5>
+							<h5>Cadastros de Consultas</h5>
 						</div>
-						<div class="widget-content nopadding">
-							<form action="<%=request.getContextPath()%>/ServletPaciente" method="post" class="form-horizontal" id="formUser">
-								<input type="hidden" name="acao" id="acao" value="">
+						<div class="widget-content nopadding" >
+							<form action="<%=request.getContextPath()%>/ServletConsultaController" method="post" class="form-horizontal" id="formUser">
 								<div class="control-group">
-									<label class="control-label" for="id">Identificação :</label>
+									<label class="control-label" for="id">ID :</label>
 									<div class="controls">
-										<input type="text" class="span11" readonly="readonly" id="id" name="id" value="${paciente.id}"/>
+										<input type="text" class="span11" id="id" name="id" readonly="readonly" value="${consulta.id}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="nome">Nome :</label>
+									<label class="control-label" for="dentista">Dentista :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Nome" id="nome" name="nome" value="${paciente.nome}"/>
+										<input type="text" class="span11" placeholder="Nome" name="dentista" id="dentista" required="required" value="${consulta.dentista}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="rg">RG :</label>
+									<label class="control-label" for="paciente">Paciente :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Rg" id="rg" name="rg" value="${paciente.rg}"/>
+										<input type="text" class="span11" placeholder="Paciente" name="paciente" id="paciente" required="required" value="${consulta.paciente}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="cpf">CPF :</label>
+									<label class="control-label" for="dataCriacao">Data de Criação :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Cpf" id="cpf" name="cpf" value="${paciente.cpf}"/>
+										<input type="text" class="span11" placeholder="Data" name="dataCriacao" id="dataCriacao" required="required" value="${consulta.dataCriacao}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Sexo :</label>
+									<label class="control-label" for="senha">Valor :</label>
 									<div class="controls">
-										<label> <input type="radio" name="sexo" checked="checked" value="M"/> Masculino
-										</label> <label> <input type="radio" name="sexo" value="F"/> Feminino
-										</label> 
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="endereco">Endereço :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Endereço" id="endereco" name="endereco" value="${paciente.endereco}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="bairro">Bairro :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Bairro" id="bairro" name="bairro" value="${paciente.bairro}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="municipio">Municipio :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Municipio" id="municipio" name="municipio" value="${paciente.municipio}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="cep">CEP :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Cep" id="cep" name="cep" value="${paciente.cep}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="uf">UF :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="UF" id="uf" name="uf" value="${paciente.uf}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="telefone">Telefone :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Telefone" id="telefone" name="telefone" value="${paciente.telefone}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="celular">Celular :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Celular" id="celular" name="celular" value="${paciente.celular}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="email">Email :</label>
-									<div class="controls">
-										<input type="email" class="span11" placeholder="Email" id="email" name="email" value="${paciente.email}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label" for="grupo">Grupo :</label>
-									<div class="controls">
-										<input type="text" class="span11" placeholder="Grupo" id="grupo" name="grupo" value="${paciente.grupo}"/>
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">Situação :</label>
-									<div class="controls">
-										<label> <input type="radio" name="situacao" checked="checked" value="ATIVO"/> Ativo
-										</label> <label> <input type="radio" name="situacao" value="INATIVO"/> Inativo
-										</label> 
+										<input type="text" class="span11"
+											placeholder="Senha" id="valor" name="valor" required="required" value="${consulta.valor}">
 									</div>
 								</div>
 								
+								<div class="control-group">
+									<label class="control-label" for="tratamento">Tratamento :</label>
+									<div class="controls">
+										<input type="text" class="span11"
+											placeholder="Tratamento" id="tratamento" name="tratamento" required="required" value="${consulta.tratamento}">
+									</div>
+								</div>
 								
+							
 								<div class="form-actions">
-								  <div class="span12 btn-icon-pg">
+									<div class="span12 btn-icon-pg">
 										<button class="btn btn-success">Salvar</button>
 										<button type="button" class="btn btn-primary" onclick="limparForm();">Novo</button>
 										<button type="button" class="btn btn-info" onclick="criarDelete();">Excluir</button>
@@ -148,22 +94,16 @@
 									</div>
 									
 									<span>${msg}</span>
-									
-									
 								</div>
 							</form>
 						</div>
 					</div>
-					
 				</div>
-				
+
+
 			</div>
-			
-			
-			
+
 		</div>
-	
-	
 	</div>
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModalPaciente" tabindex="-1"
@@ -181,8 +121,10 @@
 				<div class="modal-body">
 
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Nome" aria-label="nome" id="nomeBusca" aria-describedby="button-addon2">
-						<button class="btn btn-success" type="button" onclick="buscarUsuario();" style="margin-bottom: 10px;">Buscar</button>
+						<input type="text" class="form-control" placeholder="Nome"
+							aria-label="nome" id="nomeBusca" aria-describedby="button-addon2">
+						<button class="btn btn-success" type="button"
+							onclick="buscarUsuario();" style="margin-bottom: 10px;">Buscar</button>
 					</div>
 
 					<div style="height: 300px; overflow: scroll;">
@@ -190,23 +132,21 @@
 							<thead>
 								<tr>
 									<th scope="col">ID</th>
-									<th scope="col">Nome</th>
-									<th scope="col">Cpf</th>
-									<th scope="col">Telefone</th>
+									<th scope="col">Paciente</th>
 									<th scope="col">Ver</th>
 								</tr>
 							</thead>
 							<tbody>
-								
+
 							</tbody>
 						</table>
 					</div>
-					
+
 
 					<nav aria-label="Page navigation example">
 						<ul class="pagination" id="ulPaginacaoUserAjax">
 
-									
+
 
 
 						</ul>
@@ -224,7 +164,7 @@
 	</div>
 
 	<jsp:include page="javascriptfiles.jsp"></jsp:include>
-	
+
 	<script type="text/javascript">
 	
 	function verEditar(id) {
@@ -255,7 +195,7 @@
 			 $("#ulPaginacaoUserAjax > li").remove();
 			 
 			  for(var p = 0; p < json.length; p++){
-			      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].nome+'</td> <td> '+json[p].cpf+'</td> <td>'+json[p].telefone+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
+			      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].paciente+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
 			  }
 			  
 			  document.getElementById('totalResultados').textContent = 'Resultados: ' + json.length;
@@ -353,7 +293,7 @@
 					 $("#ulPaginacaoUserAjax > li").remove();
 					 
 					  for(var p = 0; p < json.length; p++){
-					      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].nome+'</td> <td> '+json[p].cpf+'</td> <td>'+json[p].telefone+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
+					      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].paciente+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
 					  }
 					  
 					  document.getElementById('totalResultados').textContent = 'Resultados: ' + json.length;

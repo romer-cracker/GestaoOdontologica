@@ -124,7 +124,7 @@ public class ServletUsuarioController extends HttpServlet {
 				msg = "cpf já existente, Informe outro!";
 			} else {
 				if (userAdminFuncionario.isNovo()) {
-					msg = "Gravadocom sucesso!";
+					msg = "Gravado com sucesso!";
 				} else {
 					msg = "Atualizado com sucesso!";
 				}

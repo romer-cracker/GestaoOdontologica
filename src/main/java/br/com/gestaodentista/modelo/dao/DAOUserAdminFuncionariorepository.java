@@ -66,6 +66,7 @@ public class DAOUserAdminFuncionariorepository {
 			
 			userAdminFuncionario.setId(resultSet.getLong("id"));
 			userAdminFuncionario.setNome(resultSet.getString("nome"));
+			userAdminFuncionario.setAdmissao(resultSet.getString("admissao"));
 			userAdminFuncionario.setLogin(resultSet.getString("login"));
 			userAdminFuncionario.setSenha(resultSet.getString("senha"));
 			
@@ -93,6 +94,7 @@ public class DAOUserAdminFuncionariorepository {
 				UserAdminFuncionario userAdminFuncionario = new UserAdminFuncionario();
 				
 				userAdminFuncionario.setId(resultSet.getLong("id"));
+				userAdminFuncionario.setAdmissao(resultSet.getString("admissao"));
 				userAdminFuncionario.setNome(resultSet.getString("nome"));
 				userAdminFuncionario.setLogin(resultSet.getString("login"));
 				userAdminFuncionario.setSenha(resultSet.getString("senha"));
@@ -125,6 +127,7 @@ public class DAOUserAdminFuncionariorepository {
 				
 				userAdminFuncionario.setId(resultSet.getLong("id"));
 				userAdminFuncionario.setNome(resultSet.getString("nome"));
+				userAdminFuncionario.setAdmissao(resultSet.getString("admissao"));
 				userAdminFuncionario.setLogin(resultSet.getString("login"));
 				userAdminFuncionario.setSenha(resultSet.getString("senha"));
 				
@@ -147,6 +150,7 @@ public class DAOUserAdminFuncionariorepository {
 				
 				userAdminFuncionario.setId(resultSet.getLong("id"));
 				userAdminFuncionario.setNome(resultSet.getString("nome"));
+				userAdminFuncionario.setAdmissao(resultSet.getString("admissao"));
 				userAdminFuncionario.setLogin(resultSet.getString("login"));
 				userAdminFuncionario.setSenha(resultSet.getString("senha"));
 				
@@ -170,6 +174,7 @@ public class DAOUserAdminFuncionariorepository {
 			
 			userAdminFuncionario.setId(resultSet.getLong("id"));
 			userAdminFuncionario.setNome(resultSet.getString("nome"));
+			userAdminFuncionario.setAdmissao(resultSet.getString("admissao"));
 			userAdminFuncionario.setLogin(resultSet.getString("login"));
 			userAdminFuncionario.setSenha(resultSet.getString("senha"));
 			
