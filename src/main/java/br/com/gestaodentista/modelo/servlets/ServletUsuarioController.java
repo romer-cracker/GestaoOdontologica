@@ -123,7 +123,7 @@ public class ServletUsuarioController extends HttpServlet {
 			if (daoUserAdminFuncionariorepository.validarLogin(userAdminFuncionario.getLogin())
 					&& userAdminFuncionario.getId() == null) {
 
-				msg = "cpf já existente, Informe outro!";
+				msg = "Login já existente, Informe outro!";
 			} else {
 				if (userAdminFuncionario.isNovo()) {
 					msg = "Gravado com sucesso!";
