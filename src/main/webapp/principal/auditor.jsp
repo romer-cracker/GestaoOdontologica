@@ -40,52 +40,54 @@
 						<div class="widget-title">
 							<span class="icon"> <i class="icon-align-justify"></i>
 							</span>
-							<h5>Cadastros de Dentistas</h5>
+							<h5>Cadastros de Auditorias</h5>
 						</div>
 						<div class="widget-content nopadding" >
-							<form action="<%=request.getContextPath()%>/ServletDentistaController" method="post" class="form-horizontal" id="formUser">
+							<form action="<%=request.getContextPath()%>/ServletAuditorController" method="post" class="form-horizontal" id="formUser">
 								<div class="control-group">
 									<label class="control-label" for="id">ID :</label>
 									<div class="controls">
-										<input type="text" class="span11" id="id" name="id" readonly="readonly" value="${dentista.id}">
+										<input type="text" class="span11" id="id" name="id" readonly="readonly" value="${auditor.id}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="cro">Cro :</label>
+									<label class="control-label" for="dataCriacao">Data da Criação :</label>
 									<div class="controls">
-										<input type="text" class="span11" name="cro" id="cro" required="required" value="${dentista.cro}">
+										<input type="text" class="span11" name="dataCriacao" id="dataCriacao" required="required" value="${auditor.dataCriacao}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="nome">Nome :</label>
+									<label class="control-label" for="dataUltimaModificacao">Data Última Modificação :</label>
 									<div class="controls">
-										<input type="text" class="span11" name="nome" id="nome" required="required" value="${dentista.nome}">
+										<input type="text" class="span11" name="dataUltimaModificacao" id="dataUltimaModificacao" required="required" value="${auditor.dataUltimaModificacao}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="cpf">Cpf :</label>
+									<label class="control-label" for="modificadoPor">Modificado Por :</label>
 									<div class="controls">
-										<input type="text" class="span11" name="cpf" id="cpf" required="required" value="${dentista.cpf}">
+										<input type="text" class="span11" name="modificadoPor" id="modificadoPor" required="required" value="${auditor.modificadoPor}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="rg">Rg :</label>
+									<label class="control-label" for="criadoPor">Criado Por</label>
 									<div class="controls">
 										<input type="text" class="span11"
-											 id="rg" name="rg" required="required" value="${dentista.rg}">
+											 id="criadoPor" name="criadoPor" required="required" value="${auditor.criadoPor}">
 									</div>
 								</div>
 								
 							
 								<div class="form-actions">
+								
 									<div class="span12 btn-icon-pg" style="padding-left: 20px;">
+									
 										<button class="btn btn-success">Salvar</button>
 										<button type="button" class="btn btn-primary" onclick="limparForm();">Novo</button>
-										<button type="button" class="btn btn-info" onclick="criarDelete();">Excluir</button>
-										<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalPaciente" onclick=""> Pesquisar </button>
+										<button type="button" class="btn btn-info" onclick="criarDeleteComAjax();">Excluir</button>
+										<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalPaciente"> Pesquisar </button>
 									</div>
 									
-									<span style="padding-left: 20px;">${msg}</span>
+									<span>${msg}</span>
 								</div>
 							</form>
 						</div>
@@ -95,17 +97,17 @@
 							<thead>
 								<tr>
 									<th scope="col">ID</th>
-									<th scope="col">Cpf</th>
+									<th scope="col">Modificador por</th>
 									<th scope="col">Ver</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items='${dentistas}' var='dent'>
+								<c:forEach items='${auditores}' var='aud'>
 									<tr>
-										<td><c:out value="${dent.id}"></c:out></td>
-										<td><c:out value="${dent.cpf}"></c:out></td>
+										<td><c:out value="${aud.id}"></c:out></td>
+										<td><c:out value="${aud.modificadoPor}"></c:out></td>
 										<td><a class="btn btn-success"
-											href="<%= request.getContextPath() %>/ServletDentistaController?acao=buscarEditar&id=${dent.id}">Ver</a></td>
+											href="<%= request.getContextPath() %>/ServletAuditorController?acao=buscarEditar&id=${aud.id}">Ver</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -118,7 +120,6 @@
 
 		</div>
 	</div>
-	<!-- Modal -->
 	
 
 	<jsp:include page="javascriptfiles.jsp"></jsp:include>
@@ -153,7 +154,7 @@
 			 $("#ulPaginacaoUserAjax > li").remove();
 			 
 			  for(var p = 0; p < json.length; p++){
-			      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].cpf+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
+			      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].modificadoPor+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
 			  }
 			  
 			  document.getElementById('totalResultados').textContent = 'Resultados: ' + json.length;
@@ -207,13 +208,13 @@
 		    if (confirm('Deseja realmente excluir os dados?')){
 			
 			 var urlAction = document.getElementById('formUser').action;
-			 var idPaciente = document.getElementById('id').value;
+			 var idAuditor = document.getElementById('id').value;
 			 
 			 $.ajax({
 			     
 			     method: "get",
 			     url : urlAction,
-			     data : "id=" + idPaciente + '&acao=deletarajax',
+			     data : "id=" + idAuditor + '&acao=deletarajax',
 			     success: function (response) {
 				 
 				  limparForm();
@@ -251,7 +252,7 @@
 					 $("#ulPaginacaoUserAjax > li").remove();
 					 
 					  for(var p = 0; p < json.length; p++){
-					      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].cpf+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
+					      $('#tabelaresultados > tbody').append('<tr> <td>'+json[p].id+'</td> <td> '+json[p].modificadoPor+'</td> <td><button onclick="verEditar('+json[p].id+')" type="button" class="btn btn-info">Ver</button></td></tr>');
 					  }
 					  
 					  document.getElementById('totalResultados').textContent = 'Resultados: ' + json.length;

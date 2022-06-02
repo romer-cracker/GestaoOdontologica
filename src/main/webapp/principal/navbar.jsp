@@ -30,17 +30,17 @@
     
     <li> <a href="<%= request.getContextPath() %>/ServletUsuarioController"> <i class="icon-user"></i> <span>Usuários</span> </a></li>
      
-    <li> <a href="<%= request.getContextPath() %>/ServletPaciente"> <i class="icon icon-client"></i> <span>Pacientes</span> </a></li>
+    <li> <a href="<%= request.getContextPath() %>/ServletPaciente"> <i class="icon-list-alt"></i> <span>Pacientes</span> </a></li>
     
     <li> <a href="<%= request.getContextPath() %>/ServletConsultaController"> <i class="icon-book"></i> <span>Consultas</span> </a></li>
     
-    <li> <a href="tables.html"> <i class="icon-survey"></i> <span>Auditoria</span> </a></li>
+    <li> <a href="<%= request.getContextPath() %>/ServletAuditorController"> <i class="icon-briefcase"></i> <span>Auditoria</span> </a></li>
     
     <li> <a href="grid.html"> <i class="icon icon-fullscreen"></i> <span>Contratos</span> </a></li>
     
     <li> <a href="<%= request.getContextPath() %>/ServletDentistaController"> <i class="icon icon-th-list"></i> <span>Dentistas</span> </a></li>
     
-    <li> <a href="buttons.html"> <i class="icon icon-tint"></i> <span>Pagamentos</span> </a></li>
+    <li> <a href="<%= request.getContextPath() %>/ServletPagamentoController"> <i class="icon-barcode"></i> <span>Pagamentos</span> </a></li>
     
     <li> <a href="<%= request.getContextPath() %>/ServletProcedimentoController""> <i class="icon icon-pencil"></i> <span>Procedimentos</span> </a></li>
     

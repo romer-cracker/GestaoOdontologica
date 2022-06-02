@@ -33,7 +33,7 @@
     			<div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
 	 	 </div>
 	 	 	<div class="row-fluid">
-				<div class="span9">
+				<div class="span7" style="margin-left: 21%;">
 					<div class="widget-box" >
 						<div class="widget-title">
 							<span class="icon"> <i class="icon-align-justify"></i>
@@ -52,19 +52,19 @@
 								<div class="control-group">
 									<label class="control-label" for="nome">Nome :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Nome" id="nome" name="nome" value="${paciente.nome}"/>
+										<input type="text" class="span11" id="nome" name="nome" value="${paciente.nome}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="rg">RG :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Rg" id="rg" name="rg" value="${paciente.rg}"/>
+										<input type="text" class="span11" id="rg" name="rg" value="${paciente.rg}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="cpf">CPF :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Cpf" id="cpf" name="cpf" value="${paciente.cpf}"/>
+										<input type="text" class="span11" id="cpf" name="cpf" value="${paciente.cpf}"/>
 									</div>
 								</div>
 								<div class="control-group">
@@ -78,55 +78,55 @@
 								<div class="control-group">
 									<label class="control-label" for="endereco">Endereço :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Endereço" id="endereco" name="endereco" value="${paciente.endereco}"/>
+										<input type="text" class="span11" id="endereco" name="endereco" value="${paciente.endereco}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="bairro">Bairro :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Bairro" id="bairro" name="bairro" value="${paciente.bairro}"/>
+										<input type="text" class="span11" id="bairro" name="bairro" value="${paciente.bairro}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="municipio">Municipio :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Municipio" id="municipio" name="municipio" value="${paciente.municipio}"/>
+										<input type="text" class="span11" id="municipio" name="municipio" value="${paciente.municipio}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="cep">CEP :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Cep" id="cep" name="cep" value="${paciente.cep}"/>
+										<input type="text" class="span11" id="cep" name="cep" value="${paciente.cep}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="uf">UF :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="UF" id="uf" name="uf" value="${paciente.uf}"/>
+										<input type="text" class="span11" id="uf" name="uf" value="${paciente.uf}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="telefone">Telefone :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Telefone" id="telefone" name="telefone" value="${paciente.telefone}"/>
+										<input type="text" class="span11" id="telefone" name="telefone" value="${paciente.telefone}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="celular">Celular :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Celular" id="celular" name="celular" value="${paciente.celular}"/>
+										<input type="text" class="span11" id="celular" name="celular" value="${paciente.celular}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="email">Email :</label>
 									<div class="controls">
-										<input type="email" class="span11" placeholder="Email" id="email" name="email" value="${paciente.email}"/>
+										<input type="email" class="span11" id="email" name="email" value="${paciente.email}"/>
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="grupo">Grupo :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Grupo" id="grupo" name="grupo" value="${paciente.grupo}"/>
+										<input type="text" class="span11" id="grupo" name="grupo" value="${paciente.grupo}"/>
 									</div>
 								</div>
 								<div class="control-group">
@@ -140,7 +140,7 @@
 								
 								
 								<div class="form-actions">
-								  <div class="span12 btn-icon-pg">
+								  <div class="span12 btn-icon-pg" style="padding-left: 20px;">
 										<button class="btn btn-success">Salvar</button>
 										<button type="button" class="btn btn-primary" onclick="limparForm();">Novo</button>
 										<button type="button" class="btn btn-info" onclick="criarDelete();">Excluir</button>
@@ -158,70 +158,39 @@
 				</div>
 				
 			</div>
-			
-			
-			
-		</div>
-	
-	
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalPaciente" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Pesquisa de
-						Pacientes</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Nome" aria-label="nome" id="nomeBusca" aria-describedby="button-addon2">
-						<button class="btn btn-success" type="button" onclick="buscarUsuario();" style="margin-bottom: 10px;">Buscar</button>
-					</div>
-
-					<div style="height: 300px; overflow: scroll;">
-						<table class="table" id="tabelaresultados">
+				<div style="height: 300px; overflow: scroll;">
+						<table class="table" id="tabelaresultadosview">
 							<thead>
 								<tr>
-									<th scope="col">ID</th>
-									<th scope="col">Nome</th>
-									<th scope="col">Cpf</th>
-									<th scope="col">Telefone</th>
-									<th scope="col">Ver</th>
+									<th scope="row">ID</th>
+									<th scope="row">Nome</th>
+									<th scope="row">Cpf</th>
+									<th scope="row">Telefone</th>
+									<th scope="row">Ver</th>
 								</tr>
 							</thead>
 							<tbody>
-								
+								<c:forEach items='${pacientes}' var='pac'>
+									<tr>
+										<td><c:out value="${pac.id}"></c:out></td>
+										<td><c:out value="${pac.nome}"></c:out></td>
+										<td><c:out value="${pac.cpf}"></c:out></td>
+										<td><c:out value="${pac.telefone}"></c:out></td>
+										<td><a class="btn btn-success"
+											href="<%= request.getContextPath() %>/ServletPaciente?acao=buscarEditar&id=${pac.id}">Ver</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-					
-
-					<nav aria-label="Page navigation example">
-						<ul class="pagination" id="ulPaginacaoUserAjax">
-
-									
-
-
-						</ul>
-					</nav>
-
-					<span id="totalResultados"></span>
-
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Fechar</button>
-				</div>
-			</div>
+			
+			
+			
 		</div>
+	
+	
 	</div>
+	
 
 	<jsp:include page="javascriptfiles.jsp"></jsp:include>
 	

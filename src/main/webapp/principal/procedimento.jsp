@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="row-fluid" >
-				<div class="span6">
+				<div class="span6" style="margin-left: 25%;">
 					<div class="widget-box">
 						<div class="widget-title">
 							<span class="icon"> <i class="icon-align-justify"></i>
@@ -53,18 +53,18 @@
 								<div class="control-group">
 									<label class="control-label" for="nome">Nome :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Nome" name="nome" id="nome" required="required" value="${procedimento.nome}">
+										<input type="text" class="span11" name="nome" id="nome" required="required" value="${procedimento.nome}">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="descricao">Descrição :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Descrição" name="descricao" id="descricao" required="required" value="${procedimento.descricao}">
+										<input type="text" class="span11" name="descricao" id="descricao" required="required" value="${procedimento.descricao}">
 									</div>
 								</div>
 									
 								<div class="form-actions">
-									<div class="span12 btn-icon-pg">
+									<div class="span12 btn-icon-pg" style="padding-left: 20px;">
 										<button class="btn btn-success">Salvar</button>
 										<button type="button" class="btn btn-primary" onclick="limparForm();">Novo</button>
 										<button type="button" class="btn btn-info" onclick="criarDelete();">Excluir</button>
@@ -76,37 +76,8 @@
 							</form>
 						</div>
 					</div>
-				</div>
-
-
-			</div>
-
-		</div>
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalPaciente" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Pesquisa de
-						Pacientes</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Nome"
-							aria-label="nome" id="nomeBusca" aria-describedby="button-addon2">
-						<button class="btn btn-success" type="button"
-							onclick="buscarUsuario();" style="margin-bottom: 10px;">Buscar</button>
-					</div>
-
 					<div style="height: 300px; overflow: scroll;">
-						<table class="table" id="tabelaresultados">
+						<table class="table" id="tabelaresultadosview">
 							<thead>
 								<tr>
 									<th scope="col">ID</th>
@@ -115,31 +86,25 @@
 								</tr>
 							</thead>
 							<tbody>
-
+								<c:forEach items='${procedimentos}' var='proc'>
+									<tr>
+										<td><c:out value="${proc.id}"></c:out></td>
+										<td><c:out value="${proc.nome}"></c:out></td>
+										<td><a class="btn btn-success"
+											href="<%= request.getContextPath() %>/ServletProcedimentoController?acao=buscarEditar&id=${proc.id}">Ver</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-
-
-					<nav aria-label="Page navigation example">
-						<ul class="pagination" id="ulPaginacaoUserAjax">
-
-
-
-
-						</ul>
-					</nav>
-
-					<span id="totalResultados"></span>
-
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Fechar</button>
-				</div>
+
+
 			</div>
+
 		</div>
 	</div>
+	
 
 	<jsp:include page="javascriptfiles.jsp"></jsp:include>
 

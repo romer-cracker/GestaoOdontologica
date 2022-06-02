@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="row-fluid" >
-				<div class="span6">
+				<div class="span6" style="margin-left: 25%;">
 					<div class="widget-box">
 						<div class="widget-title">
 							<span class="icon"> <i class="icon-align-justify"></i>
@@ -53,26 +53,26 @@
 								<div class="control-group">
 									<label class="control-label" for="dentista">Dentista :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Nome" name="dentista" id="dentista" required="required" value="${consulta.dentista}">
+										<input type="text" class="span11" name="dentista" id="dentista" required="required" value="${consulta.dentista}">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="paciente">Paciente :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Paciente" name="paciente" id="paciente" required="required" value="${consulta.paciente}">
+										<input type="text" class="span11" name="paciente" id="paciente" required="required" value="${consulta.paciente}">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label" for="dataCriacao">Data de Criação :</label>
 									<div class="controls">
-										<input type="text" class="span11" placeholder="Data" name="dataCriacao" id="dataCriacao" required="required" value="${consulta.dataCriacao}">
+										<input type="text" class="span11" name="dataCriacao" id="dataCriacao" required="required" value="${consulta.dataCriacao}">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label" for="senha">Valor :</label>
+									<label class="control-label" for="valor">Valor :</label>
 									<div class="controls">
 										<input type="text" class="span11"
-											placeholder="Senha" id="valor" name="valor" required="required" value="${consulta.valor}">
+											 id="valor" name="valor" required="required" value="${consulta.valor}">
 									</div>
 								</div>
 								
@@ -80,13 +80,13 @@
 									<label class="control-label" for="tratamento">Tratamento :</label>
 									<div class="controls">
 										<input type="text" class="span11"
-											placeholder="Tratamento" id="tratamento" name="tratamento" required="required" value="${consulta.tratamento}">
+											 id="tratamento" name="tratamento" required="required" value="${consulta.tratamento}">
 									</div>
 								</div>
 								
 							
 								<div class="form-actions">
-									<div class="span12 btn-icon-pg">
+									<div class="span12 btn-icon-pg" style="padding-left: 20px;">
 										<button class="btn btn-success">Salvar</button>
 										<button type="button" class="btn btn-primary" onclick="limparForm();">Novo</button>
 										<button type="button" class="btn btn-info" onclick="criarDelete();">Excluir</button>
@@ -98,37 +98,8 @@
 							</form>
 						</div>
 					</div>
-				</div>
-
-
-			</div>
-
-		</div>
-	</div>
-	<!-- Modal -->
-	<div class="modal fade" id="exampleModalPaciente" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Pesquisa de
-						Pacientes</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="Nome"
-							aria-label="nome" id="nomeBusca" aria-describedby="button-addon2">
-						<button class="btn btn-success" type="button"
-							onclick="buscarUsuario();" style="margin-bottom: 10px;">Buscar</button>
-					</div>
-
 					<div style="height: 300px; overflow: scroll;">
-						<table class="table" id="tabelaresultados">
+						<table class="table" id="tabelaresultadosview">
 							<thead>
 								<tr>
 									<th scope="col">ID</th>
@@ -137,31 +108,25 @@
 								</tr>
 							</thead>
 							<tbody>
-
+								<c:forEach items='${consultas}' var='con'>
+									<tr>
+										<td><c:out value="${con.id}"></c:out></td>
+										<td><c:out value="${con.paciente}"></c:out></td>
+										<td><a class="btn btn-success"
+											href="<%= request.getContextPath() %>/ServletConsultaController?acao=buscarEditar&id=${con.id}">Ver</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
-
-
-					<nav aria-label="Page navigation example">
-						<ul class="pagination" id="ulPaginacaoUserAjax">
-
-
-
-
-						</ul>
-					</nav>
-
-					<span id="totalResultados"></span>
-
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Fechar</button>
-				</div>
+
+
 			</div>
+
 		</div>
 	</div>
+	
 
 	<jsp:include page="javascriptfiles.jsp"></jsp:include>
 

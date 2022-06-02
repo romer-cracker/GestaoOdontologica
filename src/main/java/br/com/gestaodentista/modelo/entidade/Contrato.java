@@ -6,6 +6,7 @@ package br.com.gestaodentista.modelo.entidade;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @author romer
@@ -15,30 +16,15 @@ public class Contrato {
 
 	private int id;
 	
-	private Paciente contratante;
+	private Long contratante;
 	
-	private Dentista contratada;
+	private Long contratada;
 	
 	private Date dataCriacao;
 	
 	private Date dataExpiracao;
 	
-	private List<Pagamento> pagamentos;
-
-	public Contrato(Paciente contratante, Dentista contratada,
-			Date dataCriacao, Date dataExpiracao) {
-		this();
-		this.contratante = contratante;
-		this.contratada = contratada;
-		this.dataCriacao = dataCriacao;
-		this.dataExpiracao = dataExpiracao;
-		
-	
-	}
-
-	public Contrato() {
-		pagamentos = new ArrayList<Pagamento>();
-	}
+	private Long pagamentos;
 
 	public int getId() {
 		return id;
@@ -48,19 +34,19 @@ public class Contrato {
 		this.id = id;
 	}
 
-	public Paciente getContratante() {
+	public Long getContratante() {
 		return contratante;
 	}
 
-	public void setContratante(Paciente contratante) {
+	public void setContratante(Long contratante) {
 		this.contratante = contratante;
 	}
 
-	public Dentista getContratada() {
+	public Long getContratada() {
 		return contratada;
 	}
 
-	public void setContratada(Dentista contratada) {
+	public void setContratada(Long contratada) {
 		this.contratada = contratada;
 	}
 
@@ -80,28 +66,17 @@ public class Contrato {
 		this.dataExpiracao = dataExpiracao;
 	}
 
-	public List<Pagamento> getPagamentos() {
+	public Long getPagamentos() {
 		return pagamentos;
 	}
 
-	public void setPagamentos(List<Pagamento> pagamentos) {
+	public void setPagamentos(Long pagamentos) {
 		this.pagamentos = pagamentos;
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((contratada == null) ? 0 : contratada.hashCode());
-		result = prime * result
-				+ ((contratante == null) ? 0 : contratante.hashCode());
-		result = prime * result
-				+ ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
-		result = prime * result
-				+ ((dataExpiracao == null) ? 0 : dataExpiracao.hashCode());
-		result = prime * result + id;
-		return result;
+		return Objects.hash(contratada, contratante, dataCriacao, dataExpiracao, id, pagamentos);
 	}
 
 	@Override
@@ -113,39 +88,23 @@ public class Contrato {
 		if (getClass() != obj.getClass())
 			return false;
 		Contrato other = (Contrato) obj;
-		if (contratada == null) {
-			if (other.contratada != null)
-				return false;
-		} else if (!contratada.equals(other.contratada))
-			return false;
-		if (contratante == null) {
-			if (other.contratante != null)
-				return false;
-		} else if (!contratante.equals(other.contratante))
-			return false;
-		if (dataCriacao == null) {
-			if (other.dataCriacao != null)
-				return false;
-		} else if (!dataCriacao.equals(other.dataCriacao))
-			return false;
-		if (dataExpiracao == null) {
-			if (other.dataExpiracao != null)
-				return false;
-		} else if (!dataExpiracao.equals(other.dataExpiracao))
-			return false;
-		if (id != other.id)
-			return false;
-		return true;
+		return Objects.equals(contratada, other.contratada) && Objects.equals(contratante, other.contratante)
+				&& Objects.equals(dataCriacao, other.dataCriacao) && Objects.equals(dataExpiracao, other.dataExpiracao)
+				&& id == other.id && Objects.equals(pagamentos, other.pagamentos);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Contrato [id=").append(id).append(", contratante=")
-				.append(contratante).append(", contratada=").append(contratada)
-				.append(", dataCriacao=").append(dataCriacao)
-				.append(", dataExpiracao=").append(dataExpiracao)
-				.append(", pagamentos=").append(pagamentos).append("]");
+		builder.append("Contrato [id=").append(id).append(", contratante=").append(contratante).append(", contratada=")
+				.append(contratada).append(", dataCriacao=").append(dataCriacao).append(", dataExpiracao=")
+				.append(dataExpiracao).append(", pagamentos=").append(pagamentos).append("]");
 		return builder.toString();
 	}
+	
+	public Contrato() {
+		
+	}
+
+	
 }

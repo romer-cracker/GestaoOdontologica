@@ -136,9 +136,9 @@ public class ServletPaciente extends HttpServlet {
 			
 			String id = request.getParameter("id");
 			String nome = request.getParameter("nome");
-			String rg = request.getParameter("admissao");
-			String cpf = request.getParameter("login");
-			String sexo = request.getParameter("senha");
+			String rg = request.getParameter("rg");
+			String cpf = request.getParameter("cpf");
+			String sexo = request.getParameter("sexo");
 			String endereco = request.getParameter("endereco");
 			String bairro = request.getParameter("bairro");
 			String municipio = request.getParameter("municipio");
@@ -173,7 +173,7 @@ public class ServletPaciente extends HttpServlet {
 				msg = "cpf já existente, Informe outro!";
 			}else {
 				if(paciente.isNovo()) {
-					msg = "Gravadocom sucesso!";
+					msg = "Gravado com sucesso!";
 				}else {
 					msg = "Atualizado com sucesso!";
 				}
