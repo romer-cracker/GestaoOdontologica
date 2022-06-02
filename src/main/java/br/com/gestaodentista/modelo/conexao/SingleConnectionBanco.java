@@ -12,11 +12,11 @@ import java.sql.DriverManager;
  */
 public class SingleConnectionBanco {
 
-	private static String banco = "jdbc:postgresql://localhost:5433/pdv-vendas?autoReconnect=true";
+	private static String banco = "jdbc:postgresql://ec2-3-234-131-8.compute-1.amazonaws.com:5432/deat23hu1p2rr8?sslmode=require&autoReconnect=true";
 	
-	private static String user = "postgres";
+	private static String user = "rdlzctktoutxvw";
 	
-	private static String senha = "admin";
+	private static String senha = "3f4465ea5ca1c569f3dea78b74f590251385089f9519311789dd9e5bcb577912";
 	
 	private static Connection connection = null;
 	
