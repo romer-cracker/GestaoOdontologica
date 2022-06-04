@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="row-fluid" >
-				<div class="span6" style="margin-left: 25%;">
+				<div class="span6" style="margin: 0 auto;">
 					<div class="widget-box">
 						<div class="widget-title">
 							<span class="icon"> <i class="icon-align-justify"></i>

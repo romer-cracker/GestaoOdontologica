@@ -33,7 +33,7 @@
     			<div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
 	 	 </div>
 	 	 	<div class="row-fluid">
-				<div class="span7" style="margin-left: 21%;">
+				<div class="span7" style="margin: 0 auto;">
 					<div class="widget-box" >
 						<div class="widget-title">
 							<span class="icon"> <i class="icon-align-justify"></i>
