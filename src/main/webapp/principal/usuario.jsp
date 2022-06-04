@@ -81,7 +81,7 @@
 									<div class="span12 btn-icon-pg" style="padding-left: 20px;">
 										<button class="btn btn-success">Salvar</button>
 										<button type="button" class="btn btn-primary" onclick="limparForm();">Novo</button>
-										<button type="button" class="btn btn-info" onclick="criarDelete();">Excluir</button>
+										<button type="button" class="btn btn-info" onclick="criarDeleteComAjax();">Excluir</button>
 										<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalPaciente"> Pesquisar </button>
 									</div>
 									
