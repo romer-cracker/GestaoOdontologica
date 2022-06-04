@@ -220,13 +220,13 @@
 			if (confirm('Deseja realmente excluir os dados?')) {
 
 				var urlAction = document.getElementById('formUser').action;
-				var idPaciente = document.getElementById('id').value;
+				var idAdmin = document.getElementById('id').value;
 
 				$.ajax({
 
 					method : "get",
 					url : urlAction,
-					data : "id=" + idPaciente + '&acao=deletarajax',
+					data : "id=" + idAdmin + '&acao=deletarajax',
 					success : function(response) {
 
 						limparForm();
